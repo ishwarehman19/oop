@@ -1,0 +1,44 @@
+#include<iostream>
+using namespace std;
+
+class student{
+	public:
+	string name;
+	int age;
+	
+	student(string n,int a){
+	 name=n;
+	 age=a;	
+	}
+	
+		void displayinfo(){
+			cout<<"name :"<<name<<endl;
+			cout<<"age: "<<age<<endl;
+			return;
+		}
+	
+};
+
+class collegeStudent: public student{
+	public:
+		string branch;
+		
+		collegeStudent(string n,int a,string b):student(n,a),branch(b){
+			name=n;
+			age=a;
+			branch=b;
+		}
+		
+		void display(){
+				cout<<"branch: "<<branch<<endl;
+				return;
+			}
+};
+
+int main(){
+	collegeStudent cs("Ishwa",20,"cybersecurity");
+	cs.displayinfo();
+	cs.display();
+	
+	return 0;
+}
