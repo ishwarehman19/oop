@@ -1,0 +1,56 @@
+#include<iostream>
+using namespace std;
+
+class BankAccount{
+	public:
+	int accountNumber;
+	int balance;
+	int amount;
+	
+	BankAccount(int acc,int b){
+		accountNumber=acc;
+		balance=b;
+	}
+		
+	void deposit(){
+		balance+=amount;
+		cout<<"deposited: "<<amount<<endl;
+		
+	}
+	
+	void displayBalance(){
+		cout<<"Account: "<<accountNumber<<endl;
+		cout<<"balance: "<<balance<<endl;
+		
+	}
+	
+};
+
+class SavingsAccount:public BankAccount{
+
+ public:
+ 	float interestRate;
+ 	
+ 	
+ 		SavingsAccount(int acc,int b,float I):BankAccount(acc,b),interestRate(I){}
+ 		
+ 		float addInterest(){
+ 			double interest = balance*interestRate/100;
+ 			cout<<"interest Add :"<<interest<<endl;
+ 			
+ 			return 0;
+		 }
+ 		
+	 };
+	 
+	 
+int main(){
+	
+	SavingsAccount SA(1234,500000,6.9);
+	SA.deposit();
+	SA.displayBalance();
+	SA.addInterest();
+	
+	return 0;
+	
+} 
