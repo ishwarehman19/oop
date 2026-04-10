@@ -1,0 +1,47 @@
+#include<iostream>
+using namespace std;
+
+struct book{
+	string title;
+	string author;
+	int price;
+};
+		
+		int mostexpensive(book b0,book b1,book b2){
+			if(b0.price>b1.price && b0.price>b2.price){
+				cout<<"b0 has highest price "<<b0.price<<endl;
+			return b0.price;
+			}
+			else if(b1.price>b0.price && b1.price>b2.price){
+				cout<<"b1 has highest price "<<b1.price<<endl;
+			return b1.price;
+			}
+			else {
+				cout<<"b2 has highest price "<<b2.price<<endl;
+				return b2.price;
+			}
+		}
+		void display(book b) {
+	    cout << "Title : " << b.title << endl;
+	    cout << "Author : " << b.author << endl;
+	    cout << "Price : " << b.price << endl;
+}
+
+
+
+int main(){
+	
+	book b[3]={ {"A women is no man","Etaf rum",500},{"The kite runner","khaled hosseini",670}, {"The forty rules of love","Elif shafak",1200} };
+	 
+	
+	for (int i = 0; i < 3; i++) {
+        cout << "Book " << (i + 1) << endl;
+        display(b[i]);
+    }
+
+	 cout<<"most expensive book :"<<endl;	
+	 mostexpensive(b[0], b[1], b[2]);
+	 
+	 return 0; 
+	}
+
