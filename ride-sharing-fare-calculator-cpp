@@ -1,0 +1,73 @@
+#include <iostream>
+using namespace std;
+class RideSystem {
+	protected:
+		string passengerName;
+		int rideID;
+		double baseFare;
+		double FinalFare;
+		public:
+			RideSystem (string n, int i, double b,double f){
+			
+			 passengerName = n;
+			 int rideID = i ;
+			 	baseFare=b;
+			 FinalFare=f;
+}
+		virtual	void display (){
+			cout<<"Passenger name is: "<<passengerName<<endl;
+			cout<<"Passenger ride ID is: "<<rideID<<endl;
+			cout<<"The base fare is: "<<baseFare<<endl;
+			virtual void calculateFare (){
+			}
+		
+		}
+};
+ class economy : public RideSystem{
+ 
+ private:
+ 	double distanceKm;
+ 	
+ 	void display () override{
+ 		cout<<"The distance in Km is: "<<distanceKm<<endl;
+	 }
+	 economy (string n, int i, double b, double d) :RideSystem (string n, int i, double b);
+	 
+	 distanceKm=d;
+	 
+	 void calculateFare() override{
+	 	FinalFare= baseFare + (distanceKm*8);
+	 }
+ };
+ 
+ class luxury: public RideSystem{
+ 	private:
+ 		double distanceKm;
+ 		public:
+ 		double serviceCharge;
+     luxury (string n, int i, double b, double d,double s) : RideSystem (string n, int i, double b);
+ 			serviceCharge= s;
+ 		
+ 	virtual void display ()override {
+ 		cout<<"Distance in km is: "<<distanceKm<<endl;
+ 		cout<<"Additional luxury service charge: "<<serviceCharge<<endl;
+	 }
+
+ 	void calculateFare override (){
+ 		FinalFare= baseFare+ (distanceKm*12)+serviceCharge;
+	 }
+ };
+ 
+ int main (){
+ 	economy e1;
+ 	luxury l2;
+ 	e1.display();
+ 	e1.RideSystem("Noor",15,212,300);
+ 	l2.luxury("Ali", 14, 23, 200,500);
+ 	l2.display();
+ 	return 0;
+ }
+ 	
+
+
+ }
