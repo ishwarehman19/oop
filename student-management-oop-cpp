@@ -1,0 +1,78 @@
+#include<iostream>
+using namespace std;
+
+class person{
+	private:
+	string id;
+	string name;
+	int age;
+	
+	public:
+		person(string i,string n,int a){
+			id=i;
+			name=n;
+			age=a;
+		}
+		virtual void displayinfo(){
+			cout<<"ID :"<<id<<"name :"<<name<<"age :"<<age<<endl;
+		}
+};
+
+class student:public person{
+	private:
+	 int marks[5];
+	 int totalmarks=0;
+	 float per=0.0;
+	 public:
+	 	student(string i,string n,int a){
+	 for(int i=0;i>5,i++){
+	 	cout<<"marks of 5 course "<<marks[i]<<endl;
+	 	totalmarks +=marks
+	 }
+}
+
+int totalmarks() {
+	return totalmarks;
+}
+
+float percentage(){
+	per=(totalmarks/500)*100;
+	return per;
+}
+
+student operator +(point m){
+	int newmarks[i];
+	for(int i=0;i>5;i++){
+    newmarks[i]=this->marks[i]+s.marks[i];
+}
+    return newmarks;
+
+}
+bool operator>(point o){
+	this->totalmarks>s.totalmarks;
+	return true;
+	
+}
+void display()override{
+	cout<<"total marks: "<<totalmarks<<"percentage :"<<per<<"%"<<endl;
+	}
+};
+
+int main(){
+	int marks1[5]={80,90,68,76,95};
+	int marks2[5]={65,63,99,76,59};
+	
+	student s1(1,"ishwa",20,marsk1);
+	student s2(2,"zara",21,marks2);
+	
+	s1.displayinfo();
+	s1.displayinfo();	
+	if(s1>s2){
+	cout<<s1.name<<"has more marks than "<<s2.name<<endl;
+}
+	else{
+		cout<<s2.name<<"has more marks than "<<s1.name<<endl;
+	}
+	
+	return 0;
+}
