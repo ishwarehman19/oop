@@ -1,0 +1,66 @@
+#include<iostream>
+using namespace std;
+
+class vehicle{
+	public:
+	int speed=100;
+	
+	void showspeed(){
+		cout<<"speed: "<<speed<<endl;
+	}
+		
+};
+
+class car:virtual public vehicle{
+	public:
+		string cartype;
+		car(string n):cartype(n){}
+		
+		
+		void show_cartype(){
+			cout<<"type of car: "<<cartype<<endl;
+			return ;
+		}
+};
+class bike:virtual public vehicle{
+	public:
+		string biketype;
+		bike(string b){ 
+		 biketype=b;
+		}
+		
+		
+		void show_biketype(){
+			cout<<"type of bike: "<<biketype<<endl;
+			return;
+		}
+};
+
+class electricvehicle:public car,public bike{
+	public:
+		string type;
+		 electricvehicle(string n,string b,string t):car(n),bike(b),type(t){ }
+		
+		
+		
+		void show_electricvehicle(){
+			cout<<"electricvehicle: "<<type<<endl;
+			return;
+		}
+};
+
+int main(){
+	car c1("Sedan");
+	bike b1("road bike");
+	electricvehicle e1("car", "bike","Carver");
+	c1.show_cartype();
+	b1.show_biketype();
+	e1.show_electricvehicle();
+	
+	return 0;
+}
+
+
+
+
+
