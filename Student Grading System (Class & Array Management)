@@ -1,0 +1,61 @@
+#include<iostream>
+using namespace std;
+
+class student{
+	private:
+	string name;
+	int roll_no;
+	int marks[5];
+	
+	public:
+		student(string n,int r){
+			name=n;
+			roll_no=r;
+		}
+		void input(){
+			for(int i=0;i<5;i++){
+				cout<<"marks :"<<i+1<<endl;
+				cin>>marks[i];
+			}
+			return ;
+		}
+		int calculateA(){
+			float sum=0.0;
+			for(int i=0;i<5;i++){
+		       sum += marks[i];
+			}
+			return sum/5;
+		}
+		
+		void displayinfo(){
+		cout << "\n--- Student Report Card ---" << endl;
+        cout << "Name: " << name << endl;
+        cout << "Roll Number: " << roll_no << endl;
+        cout << "Average Marks: " << calculateA() << endl;
+        cout << "---------------------------" << endl;
+        
+        return;
+		}
+	
+};
+
+int main(){
+	student S1("ishwa",16);
+	student S2("zara",23);
+	student S3("areeba",5);
+	
+	S1.input();
+	S1.calculateA();
+	S1.displayinfo();
+	
+	S2.input();
+	S2.calculateA();
+	S2.displayinfo();
+	
+	S3.input();
+	S3.calculateA();
+	S3.displayinfo();
+	
+	return 0;
+}
+
