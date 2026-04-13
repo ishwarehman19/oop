@@ -1,0 +1,27 @@
+#include<iostream>
+using namespace std;
+
+class emeny{
+	private:
+		int health;
+		public:
+			emeny(int health){
+				this->health=health;
+			}
+			
+			emeny& sethealth(int health){
+				this->health=health;
+				return *this;
+			}
+			void display(){
+				cout<<"health "<<this->health<<endl;
+				return ;
+			}
+};
+
+int main(){
+	emeny E(100);
+	E.sethealth(70).display();
+	
+	return 0;
+}
