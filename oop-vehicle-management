@@ -1,0 +1,49 @@
+#include<iostream>
+using namespace std;
+
+class car{
+	private:
+		string model;
+		string brand;
+		int speed;
+		
+		public:
+			car(string m,string b,int s=0){
+				model=m;
+				brand=b;
+				speed=s;
+			}
+			
+			void accelerate(int ammount){
+				speed +=ammount;
+				cout<<"name: "<<model<<brand<<" "<<"speed"<<" "<<speed<<"km/h"<<endl;
+				return ;
+			}
+			
+			void brake(int ammount){
+				speed -=ammount;
+				if(speed<0)speed = 0;
+				cout<<"name: "<<model<<brand<<" "<<"speed"<<" "<<speed<<"km/h"<<endl;
+				return ;
+			}
+			
+			void displayinfo(){
+				cout<<"name: "<<model<<" "<<brand<<" "<<"speed: "<<speed<<"km/h"<<endl;
+				return ;
+			}
+};
+
+int main(){
+	car C1("Toyota", "corolla");
+    car C2("honda", "civic");
+	
+	C1.accelerate(60);
+	C1.displayinfo();
+	C1.brake(20);
+	
+	C2.accelerate(30);
+	C2.displayinfo();
+	C2.brake(10);
+	
+	return 0;
+}
