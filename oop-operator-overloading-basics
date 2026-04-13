@@ -1,0 +1,60 @@
+#include<iostream>
+using namespace std;
+
+class complexnumber{
+	private:
+		double real_no;
+		double imaginary_no;
+		public:
+			complexnumber(){
+				real_no=0;
+				imaginary_no=0;
+			}
+			complexnumber(double r,double i){
+				real_no=r;
+				imaginary_no=i;
+			}
+			
+			complexnumber operator+ (const complexnumber& other){
+				return complexnumber(real_no + other.real_no , imaginary_no+ other.imaginary_no);
+			}
+			
+			complexnumber operator-(const complexnumber& other){
+				return complexnumber(real_no-other.real_no,imaginary_no-other.imaginary_no);
+			}
+			
+			bool operator==(const complexnumber& other){
+				return real_no==other.real_no && imaginary_no==other.imaginary_no;
+			}
+			
+			void display(){
+				cout<<real_no<<"+"<<imaginary_no<<"i"<<endl;
+				return;
+			}
+			
+			void display(string label){
+				cout<<label<<":"<<real_no<<"+"<<imaginary_no<<"i"<<endl;
+				return;
+			}		
+};
+
+int main(){
+	complexnumber c1(5,6);
+	complexnumber c2(4,3);
+	
+	complexnumber sum=c1+c2;
+	complexnumber difference = c1-c2;
+	
+	c1.display("no 1");
+	c1.display("no 2");
+	
+	sum.display("sum");
+	difference.display("difference");
+	
+	cout<<"\nare c1 and c2 equal?" <<( c1 == c2 ? "yes" : "No")<<endl;
+	
+	complexnumber c3(4,7);
+	cout<<"\nare c1 and c3 equal?"<<(c1 == c3 ? "yes" : "No")<<endl;
+	
+	return 0;
+}
