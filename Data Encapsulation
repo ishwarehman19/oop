@@ -1,0 +1,27 @@
+#include<iostream>
+using namespace std;
+
+class password{
+	private:
+		string password;
+		public:
+			string getpassword(){
+				return password;
+			}
+			void setpassword(string p){
+				password=p;
+				}
+				
+				void displaypassword(){
+					cout<<"password "<<password<<endl;
+					return ;
+				}
+};
+int main(){
+	password p1;
+	p1.setpassword("ish577vjo");
+	p1.displaypassword();
+	
+	return 0;
+	
+}
