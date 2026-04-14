@@ -1,0 +1,64 @@
+#include<iostream>
+using namespace std;
+
+class person{
+	private:
+	string name;
+	int age;
+	
+	public:
+		person(string n,int a){
+			name=n;
+			age=a;		
+		}
+	void display(){
+		cout<<"name: "<<name<<endl;
+		cout<<"age: "<<age<<endl;
+		return ;
+	}
+};
+class student:public person{
+	private:
+		int rollnumber;
+		public:
+			student(string n,int a,int r):person(n,a){
+			rollnumber=r;	
+			}
+			void displaystudent(){
+				cout<<"roll number: "<<rollnumber<<endl;
+				 return ;
+			}
+			
+};
+
+class teacher:public person{
+	private:
+		int salary;
+		string subject;
+		
+		public:
+			teacher(string n,int a,int s,string ss):person(n,a){
+			salary=s;
+			subject=ss;
+			}
+			void teacherdisplay(){
+				cout<<"salary: "<<salary<<endl;
+				cout<<"subject: "<<subject<<endl;
+				
+				return;
+			}
+};
+
+int main(){
+
+	student s1={"ishwa",20,2678};
+	teacher t1={"shahzad",40,67000,"oops"	}
+	
+	p1.display();
+	s1.displaystudent();
+	t1.teacher();
+	
+	return ;
+}
+
+
