@@ -1,0 +1,124 @@
+#include<iostream>
+using namespace std;
+
+class Animal{
+	protected:
+		string Name;
+		int age;
+		
+		public:
+		Animal(string n,int a){
+			Name=n;
+			age=a;
+		}
+		virtual void speak(){
+			cout<<"some animal sound: "<<endl;
+			return;
+		}
+		void showInfo(){
+			cout<<"name: "<<Name<<endl;
+			cout<<"age: "<<age<<endl;
+			return;
+		}
+};
+
+class Dog: public Animal{
+	private:
+	string breed;
+	
+	public:
+		Dog(string n,int a,string b):Animal(n,a),breed(b){}
+		
+		void speak()override{
+			cout<< Name <<" make sound : woaff woaff"<<endl;
+		
+		return;
+		}
+		
+		void showbreed(){
+			cout<<"breed is: "<<breed<<endl;
+			return ;
+			
+		}	
+		
+};
+
+class cat: public Animal{
+	private:
+		string color;
+		
+		public:
+			cat(string n,int a,string c):Animal(n,a),color(c){}
+			
+			void speak()override{
+				cout<<Name<<" makes sound meow meaw"<<endl;
+				return;
+			}
+			void showcolor(){
+				cout<<"color is: "<<color<<endl;
+				return;
+			}
+	
+};
+
+class bird : public Animal{
+	private:
+		bool canFly;
+		
+		public:
+			bird(string n,int a,bool f):Animal(n,a),canFly(f){}
+			
+			void speak()override{
+				cout<< Name<<" makes sound: tweet tweet"<<endl;
+				return;
+			}
+			
+			void canFlyStatus(){
+				cout<<"can fly: "<<(canFly ? "yes":"No")<<endl;
+			
+				return;
+				
+			}
+};
+
+int main(){
+	cout<<"=====Animal Kingdom====="<<endl;
+	
+	Dog d("bobo",2,"bulldog");
+	cout<<"===dog==="<<endl;
+	d.showInfo();
+	d.showbreed();
+	d.speak();
+	
+	
+	
+	cat c("banoni",3,"persian");
+	cout<<"===cat==="<<endl;
+	c.showInfo();
+	c.showcolor();
+	c.speak();
+	
+	
+	bird B("T2",1,"parrot");
+	cout<<"===bird==="<<endl;
+    B.showInfo();
+    B.canFlyStatus();
+	B.speak();
+	
+	
+	return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
