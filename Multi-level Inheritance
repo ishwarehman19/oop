@@ -1,0 +1,67 @@
+#include<iostream>
+using namespace std;
+
+
+class livingThing{
+	private:
+		bool alive;
+		
+		public:
+		
+		livingThing(bool a){
+			alive=a;
+		}
+		
+		void breath(){
+			cout<<"can breath: "<<(alive? "yes":"no")<<endl;
+			if(alive){
+				cout<<"yes"<<endl;
+			}
+			else{
+				cout<<"no"<<endl;
+			}
+			
+			return;
+		}
+};
+
+class animal:public livingThing{
+	private:
+		string name;
+		
+		public:
+			animal(bool a,string n):livingThing(a),name(n){}
+			
+			void eat(){
+				cout<<"eat : meat"<<endl;
+				
+				return;
+			}
+};
+
+class dog:public animal{
+	private:
+		string breed;
+		
+		public:
+		
+		dog(bool a,string n,string b):animal(a,n),breed(b){}
+		
+		void bark(){
+			cout<<"bark: woaf"<<endl;
+			return;
+		}
+};
+
+int main(){
+	dog d(true,"bobo","bulldog");
+	d.breath();
+	d.eat();
+	d.bark();
+	
+	return 0;
+}
+
+
+
+
