@@ -1,0 +1,79 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Room {
+protected:
+    int room_no;
+    double base_rate;
+    string guest_name;
+
+public:
+    Room(int n, double r,string a) : room_no(n), base_rate(r), guest_name(a) {}
+
+    void checkIn(string name) {
+        guest_name = name;
+        cout << "Room " << room_no << " booked for " << guest_name << endl;
+    }
+
+    void checkIn(string name, int guests) {
+        guest_name = name;
+        cout << "Room " << room_no << " booked for " << guest_name << endl;
+    }
+
+    virtual double calculateBill(int days) {
+        return base_rate * days;
+    }
+
+
+    double operator+(Room& other) {
+        return this->base_rate + other.base_rate;
+    }
+
+    virtual void displayInfo() {
+        cout << "Room: " << room_no << "Guest: " << guest_name;
+    }
+};
+
+
+class Suite : public Room {
+private:
+    double serviceFee;
+
+public:
+    Suite(int n, double r, string a,double f) : Room(n,r,a), serviceFee(f) {}
+
+    
+    double calculateBill(int days) override {
+        return (base_rate * days) + serviceFee;
+    }
+
+    void displayInfo() override {
+        Room::displayInfo();
+        cout << " Type: Luxury Suite" << endl;
+    }
+};
+
+int main() {
+
+    Room* r1 = new Room(101, 100.0," ");
+    Room* r2 = new Suite(505, 300.0," ", 50.0);
+
+    cout << "Hotel Check-In" << endl;
+    r1->checkIn("Ishwa");              
+    r2->checkIn("Fatima", 3);            
+
+    cout << "Billing Details" << endl;
+    cout << "Room 101 Bill (2 nights): Rs " << r1->calculateBill(2) << endl;
+    cout << "Suite 505 Bill (2 nights): Rs " << r2->calculateBill(2) << endl;
+
+
+    double combinedBaseRate = *r1 + *r2;
+    cout << "Combined Base Rate: Rs " << combinedBaseRate << endl;
+
+    delete r1;
+    delete r2;
+    
+    return 0;
+}
