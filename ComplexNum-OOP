@@ -1,0 +1,52 @@
+#include<iostream>
+using namespace std;
+
+class complex_num {
+private:
+    float real;
+    float imaginary;
+
+public:
+    complex_num(float r, float i) {
+        real = r;
+        imaginary = i;
+    }
+
+    complex_num operator +(const complex_num& other) {
+        return complex_num(real + other.real, imaginary + other.imaginary);
+    }
+
+    complex_num operator -(const complex_num& other) {
+        return complex_num(real - other.real, imaginary - other.imaginary);
+    }
+
+    complex_num operator *(const complex_num& other) {
+        return complex_num(
+            (real * other.real) - (imaginary * other.imaginary),
+            (real * other.imaginary) + (imaginary * other.real)
+        );
+    }
+
+    bool operator ==(const complex_num& other) {
+        return (real == other.real && imaginary == other.imaginary);
+    }
+
+
+    friend ostream& operator<<(ostream& os, const complex_num& c) {
+        os << c.real << " + " << c.imaginary << "i";
+        return os;
+    }
+};
+
+int main() {
+    complex_num c1(5, 8);
+    complex_num c2(8, 3);
+
+    
+    cout << "c1 + c2: " << (c1 + c2) << endl;
+    cout << "c1 - c2: " << (c1 - c2) << endl;
+    cout << "c1 * c2: " << (c1 * c2) << endl;
+    cout << "c1 == c2: " << (c1 == c2 ? "True" : "False") << endl;
+
+    return 0;
+}
