@@ -1,0 +1,17 @@
+#include<iostream>
+using namespace std;
+
+double circle(double r){return 3.14 * r * r;	
+}
+double rectangle(double a,double b){return a*b;
+}
+int square(int s){return s*s;
+}
+
+int main(){
+	cout<<"circle: "<<(7.0)<<endl;
+	cout<<"Rectangle: "<<(4.5,8.0)<<endl;
+	cout<<"square: "<<(6)<<endl;
+	
+	return 0;
+}
