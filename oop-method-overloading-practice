@@ -1,0 +1,38 @@
+#include<iostream>
+using  namespace std;
+
+class student{
+	private:
+		string name;
+		int age;
+	public:
+		void display(){
+			cout<<"No info"<<endl;
+			return ;
+		}
+		
+		void display(string n){
+			name =n;
+			cout<<"Name: "<<name<<endl;
+			return ;
+		}
+		
+		void display(string n,int a){
+			name =n;
+			age =a;
+			cout<<"Name: "<<name<<endl;
+			cout<<"Age: "<<age<<endl;
+			return;
+		}
+};
+
+int main(){
+	student s;
+	s.display();
+	s.display("Ishwa");
+	s.display("Ishwa",20);
+	
+	return 0;
+}
+
+
